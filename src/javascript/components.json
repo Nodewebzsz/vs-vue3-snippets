@@ -1,0 +1,36 @@
+{
+	"Import Vue Component": {
+		"prefix": ["importComponent", "ivc"],
+		"body": [
+			"import $1 from '@/components/${1:Feature}';$0"
+		]
+	},
+
+	"Vue Global Component": {
+		"prefix": ["vueGlobalComponent", "vgc"],
+		"body": [
+			"${6:app}.component(${1:'${2:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}'}, {",
+			"  props: { $3 },",
+			"  data() {",
+			"    return {",
+			"      $4",
+			"    }",
+			"  },$0",
+			"  template: '$5',",
+			"});"
+		],
+		"description": "Register a global component. Registration also automatically sets the component's name with the given name parameter.\n"
+	},
+
+	"Vue Retrieve Global Component": {
+		"prefix": "app.component()",
+		"body": [
+			"const ${2:Feature} = ${3:app}.component('${1:FeatureComponent}');"
+		]
+	},
+
+	"Vue option.components": {
+		"prefix": ["option.components", "ocs"],
+		"body": ["components: { ${1:Feature} },$0"]
+	}
+}

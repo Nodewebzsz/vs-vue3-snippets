@@ -1,0 +1,136 @@
+{
+	"Import Vue Directive": {
+		"prefix": ["importDirective", "ivd"],
+		"body": [
+			"import $1 from '@/directives/${1:Feature}';$0"
+		]
+	},
+
+	"Vue Global Directive (All Hooks)": {
+		"prefix": ["app.directive()", "vgd"],
+		"body": [
+			"${16:app}.directive('${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}', {",
+			"  ${2:created(el, binding, vnode) {$3\\},}",
+			"  ${4:beforeMount(el, binding, vnode, prevVNode) {$5\\},}",
+			"  ${6:mounted(el, binding, vnode, prevVNode) {$7\\},}",
+			"  ${8:beforeUpdate(el, binding, vnode, prevVNode) {$9\\},}",
+			"  ${10:updated(el, binding, vnode, prevVNode) {$11\\},}",
+			"  ${12:beforeUnmount(el, binding, vnode, prevVNode) {$13\\},}",
+			"  ${14:unmounted(el, binding, vnode, prevVNode) {$15\\},}",
+			"});$0"
+		],
+		"description": "Register a global directive (all lifecycle hooks)\n"
+	},
+	"Vue Global Directive (bind, update)": {
+		"prefix": ["app.directive()", "vgd"],
+		"body": [
+			"${6:app}.directive('${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}', function (el, binding, vnode, prevVNode) {",
+			"  ${2:// `mounted`, `updated`}",
+			"  $0",
+			"});"
+		],
+		"description": "Register a global directive (bind, update)\n"
+	},
+	"Vue Retrieve Global Directive": {
+		"prefix": "app.directive()",
+		"body": [
+			"const ${2:feature}Directive = ${6:app}.directive('${1:id}');"
+		],
+		"description": "getter, return the directive definition if registered\n"
+	},
+
+	"Vue Single File Directive (All Hooks)": {
+		"prefix": ["vueDirective", "vsd"],
+		"body": [
+			"export default {",
+			"  name: '${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}',",
+			"  ${2:created(el, binding, vnode) {$3\\},}",
+			"  ${4:beforeMount(el, binding, vnode, prevVNode) {$5\\},}",
+			"  ${6:mounted(el, binding, vnode, prevVNode) {$7\\},}",
+			"  ${8:beforeUpdate(el, binding, vnode, prevVNode) {$9\\},}",
+			"  ${10:updated(el, binding, vnode, prevVNode) {$11\\},}",
+			"  ${12:beforeUnmount(el, binding, vnode, prevVNode) {$13\\},}",
+			"  ${14:unmounted(el, binding, vnode, prevVNode) {$15\\},}",
+			"});$0"
+		],
+		"description": "Register a single file directive (all lifecycle hooks)\n"
+	},
+
+	"Vue Local Directives": {
+		"prefix": ["option.directives", "vld"],
+		"body": ["directives: {", "  ${1:id}: {$2},$0", "},"],
+		"description": "Define local directives in a component’s options.\nA hash of directives to be made available to the Vue instance.\n"
+	},
+
+	"Vue directive hook, created()": {
+		"prefix": ["directive.created", "vd.created"],
+		"body": [
+			"created (el${2:, binding${3:, vnode${4:, prevVNode}}}) {",
+			"  $5",
+			"},$0"
+		],
+		"description": "Directive `bind` lifecycle\n"
+	},
+	"Vue directive hook, beforeMount()": {
+		"prefix": ["directive.beforeMount", "vd.beforeMount"],
+		"body": [
+			"beforeMount (el${2:, binding${3:, vnode${4:, prevVNode}}}) {",
+			"  $5",
+			"},$0"
+		],
+		"description": "Directive `inserted` lifecycle\n"
+	},
+	"Vue directive hook, mounted()": {
+		"prefix": ["directive.mounted", "vd.mounted"],
+		"body": [
+			"mounted (el${2:, binding${3:, vnode${4:, prevVNode}}}) {",
+			"  $5",
+			"},$0"
+		],
+		"description": "Directive `update` lifecycle\n"
+	},
+	"Vue directive hook, beforeUpdate()": {
+		"prefix": ["directive.beforeUpdate", "vd.beforeUpdate"],
+		"body": [
+			"beforeUpdate (el${2:, binding${3:, vnode${4:, prevVNode}}}) {",
+			"  $5",
+			"},$0"
+		],
+		"description": "Directive `componentUpdated` lifecycle\n"
+	},
+	"Vue directive hook, updated()": {
+		"prefix": ["directive.updated", "vd.updated"],
+		"body": [
+			"updated (el${2:, binding${3:, vnode${4:, prevVNode}}}) {",
+			"  $5",
+			"},$0"
+		],
+		"description": "Directive `unbind` lifecycle\n"
+	},
+	"Vue directive hook, beforeUnmount()": {
+		"prefix": [
+			"directive.beforeUnmount",
+			"vd.beforeUnmount"
+		],
+		"body": [
+			"beforeUnmount (el${2:, binding${3:, vnode${4:, prevVNode}}}) {",
+			"  $5",
+			"},$0"
+		],
+		"description": "Directive `unbind` lifecycle\n"
+	},
+	"Vue directive hook, unmounted()": {
+		"prefix": ["directive.unmounted", "vd.unmounted"],
+		"body": [
+			"unmounted (el${2:, binding${3:, vnode${4:, prevVNode}}}) {",
+			"  $5",
+			"},$0"
+		],
+		"description": "Directive `unbind` lifecycle\n"
+	},
+
+	"Vue option.directives": {
+		"prefix": ["option.directives", "ods"],
+		"body": ["directives: { ${1:Feature} },$0"]
+	}
+}
